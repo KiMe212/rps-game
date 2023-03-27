@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "rps-game"
+version = "0.1.0"
+description = ""
+authors = ["Sobolev Mike"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.85.1"
+uvicorn = "^0.19.0"
+pytest = "^7.2.2"
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^5.0.4"
+autopep8 = "^1.7.1"
+isort = "^5.12.0"
+requests = "^2.28.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
