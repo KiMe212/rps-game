@@ -16,10 +16,10 @@ router = APIRouter(
 def play_rps(choice_model: ChoiceModel):
     choice_pc = random.choice(CHOICE_LIST)
     validated_choice = ItemModel(item=choice_model.choice)
-    winner = get_winner(choice_first=choice_model.choice,
+    winner = get_winner(choice_first=validated_choice.item,
                         choice_second=choice_pc)
     return JSONResponse(content={
-        'choice': choice_model.choice,
+        'choice': validated_choice.item,
         'winner': winner
     },
         status_code=status.HTTP_200_OK)
@@ -29,9 +29,9 @@ def play_rps(choice_model: ChoiceModel):
 def play_rps(choice: str):
     choice_pc = random.choice(CHOICE_LIST)
     validated_choice = ItemModel(item=choice)
-    winner = get_winner(choice_first=choice, choice_second=choice_pc)
+    winner = get_winner(choice_first=validated_choice.item, choice_second=choice_pc)
     return JSONResponse(content={
-        'choice': choice,
+        'choice': validated_choice.item,
         'winner': winner
     },
         status_code=status.HTTP_200_OK)
