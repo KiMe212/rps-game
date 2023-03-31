@@ -1,9 +1,11 @@
 from fastapi import HTTPException, status
 from pydantic import BaseModel, validator
 
-
+    
 class ChoiceModel(BaseModel):
-    choice: str
+    your_choice: str
+    pc_choice: str
+    message: str
 
 
 class ItemModel(BaseModel):

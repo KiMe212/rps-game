@@ -7,6 +7,8 @@ ___
     POST    
 + ***URL-params:***   
 choice = [string]
++ ***Body-params:***    
+choice = [string]
 + ***Data Params:***   
 None
 + ***Success Response:***   
@@ -17,4 +19,4 @@ None
 **Content**: {detail: "You have incorrect choice"}
 + ***Sample Call:***   
 ```
-curl -XPOST "http://localhost:8000/rps" -d '{"path":"/rps","httpMethod":"GET","version":"1.0","requestContext":{"protocol":"HTTP/1.1"}, "queryStringParameters": {"choice": "paper"}, "body": null}'
+curl -XPOST "http://localhost:8000/game" -d '{"path":"/rps","httpMethod":"GET","version":"1.0","requestContext":{"protocol":"HTTP/1.1"}, "queryStringParameters": {"choice": "paper"}, "body": null}'

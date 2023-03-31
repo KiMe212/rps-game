@@ -28,4 +28,4 @@ ____
 
 **You choose one of kinds choice, next PC make random choice. And result -- thy win**
 
-### [Manuale game](app/docs/RUN.md)
+### [Manuale game](docs/RUN.md)
