@@ -5,18 +5,34 @@ ___
 + ***Method:***   
     GET    
     POST    
-+ ***URL-params:***   
++ ***URL-params(GET):***   
 choice = [string]
-+ ***Body-params:***    
++ ***Body-params(POST):***    
 choice = [string]
 + ***Data Params:***   
 None
 + ***Success Response:***   
 **Code**: 200   
-**Content**: {"choice": "paper","winner": "You Lose, i have scissors"}
+**Content**: {"your_choice": "paper", "pc_choice": "scissors", "message": "You Win"}
 + ***Error Response:***   
 **Code**: 400   
-**Content**: {detail: "You have incorrect choice"}
-+ ***Sample Call:***   
+**Content**: {"detail": "You have incorrect choice"}
++ ***Sample Call:***  
+
+GET
 ```
-curl -XPOST "http://localhost:8000/game" -d '{"path":"/rps","httpMethod":"GET","version":"1.0","requestContext":{"protocol":"HTTP/1.1"}, "queryStringParameters": {"choice": "paper"}, "body": null}'
+curl -X 'GET' \
+  'http://127.0.0.1:8000/game/rps?choice=paper' \
+  -H 'accept: application/json' 
+  ```
+POST
+
+```
+curl -X 'POST' \
+  'http://127.0.0.1:8000/game/rps' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "your_choice": "paper",
+}'
+```

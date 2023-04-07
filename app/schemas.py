@@ -1,6 +1,7 @@
 from fastapi import HTTPException, status
 from pydantic import BaseModel, validator
-from .settings import config
+
+from app.settings import config
 
 
 class ChoiceModel(BaseModel):
@@ -14,7 +15,7 @@ class ItemModel(BaseModel):
 
     @validator("item")
     def validate_choice(cls, item):
-        if item not in config.CHOICSE_LIST:
+        if item not in config.CHOICE_LIST:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="You have incorrect choice",

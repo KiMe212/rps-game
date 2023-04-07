@@ -2,21 +2,20 @@ from pydantic import BaseSettings
 
 
 class Settings(BaseSettings):
-    DESCRIPTION: str = "None"
-    VERSION: int = 0.1
-    CHOICSE_LIST: list = ("rock", "paper", "scissors")
-    WIN_AND_LOSE_COMBINATIONS: dict = {
+    DESCRIPTION: str = """This is me new game
+    if you like interesting game with exciting story, come to me :) """
+    VERSION: str = "0.1"
+    CHOICE_LIST: list[str] = ("rock", "paper", "scissors")
+    WIN_COMBINATIONS: dict[tuple[str, ...], str] = {
         ("rock", "scissors"): "You Win",
         ("paper", "rock"): "You Win",
         ("scissors", "paper"): "You Win",
+    }
+    LOSE_COMBINATIONS: dict[tuple[str, ...], str] = {
         ("rock", "paper"): "You Lose",
         ("paper", "scissors"): "You Lose",
         ("scissors", "rock"): "You Lose",
     }
-
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
 
 
 config = Settings()
