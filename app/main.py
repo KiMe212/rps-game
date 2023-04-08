@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from app.routes import router
+from app.settings import config
 
 description = """
 ### This is relax game.
@@ -18,8 +19,8 @@ def init_routers(application: FastAPI):
 def create_app():
     _app = FastAPI(
         title="Game of Rock Paper Scissors",
-        description=description,
-        version='0.1',
+        description=config.DESCRIPTION,
+        version=config.VERSION,
     )
     init_routers(_app)
     return _app

@@ -1,16 +1,21 @@
-CHOICE_LIST = ('rock', 'paper', 'scissors')
+from app.schemas import GameResult
+from app.settings import config
 
 
-def get_winner(choice_first: str, choice_second: str):
-    combinations = {
-        ("rock", "paper"): f"You Lose, i have {choice_second}",
-        ("rock", "scissors"): f"You Win, i have {choice_second}",
-        ("paper", "rock"): f"You Win, i have {choice_second}",
-        ("paper", "scissors"): f"You Lose, i have {choice_second}",
-        ("scissors", "paper"): f"You Win, i have {choice_second}",
-        ("scissors", "rock"): f"You Lose, i have {choice_second}",
+def get_game_result(first_choice, second_choice):
+    game_tuple = (first_choice, second_choice)
+    if game_tuple in config.WIN_COMBINATIONS:
+        return GameResult.WIN
+    elif game_tuple in config.LOSS_COMBINATIONS:
+        return GameResult.LOSS
+    else:
+        return GameResult.TIE
+
+
+def get_message_from_game_result(result):
+    game_result_to_msg = {
+        GameResult.WIN: "You Win",
+        GameResult.LOSS: "You Lose",
+        GameResult.TIE: "Tie",
     }
-    game_tuple = (choice_first, choice_second)
-    if choice_first == choice_second:
-        return "Draw"
-    return combinations[game_tuple]
+    return game_result_to_msg[result]
