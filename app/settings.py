@@ -6,15 +6,15 @@ class Settings(BaseSettings):
     if you like interesting game with exciting story, come to me :) """
     VERSION: str = "0.1"
     CHOICE_LIST: list[str] = ("rock", "paper", "scissors")
-    WIN_COMBINATIONS: dict[tuple[str, ...], str] = {
-        ("rock", "scissors"): "You Win",
-        ("paper", "rock"): "You Win",
-        ("scissors", "paper"): "You Win",
-    }
-    LOSE_COMBINATIONS: dict[tuple[str, ...], str] = {
-        ("rock", "paper"): "You Lose",
-        ("paper", "scissors"): "You Lose",
-        ("scissors", "rock"): "You Lose",
+    WIN_COMBINATIONS: list[tuple] = (
+        ("rock", "scissors"),
+        ("paper", "rock"),
+        ("scissors", "paper"),
+    )
+    LOSE_COMBINATIONS: list[tuple] = {
+        ("rock", "paper"),
+        ("paper", "scissors"),
+        ("scissors", "rock"),
     }
 
 
