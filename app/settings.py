@@ -6,16 +6,16 @@ class Settings(BaseSettings):
     if you like interesting game with exciting story, come to me :) """
     VERSION: str = "0.1"
     CHOICE_LIST: list[str] = ("rock", "paper", "scissors")
-    WIN_COMBINATIONS: list[tuple] = (
+    WIN_COMBINATIONS: tuple[tuple[str, ...], ...] = (
         ("rock", "scissors"),
         ("paper", "rock"),
         ("scissors", "paper"),
     )
-    LOSE_COMBINATIONS: list[tuple] = {
+    LOSS_COMBINATIONS: tuple[tuple[str, ...], ...] = (
         ("rock", "paper"),
         ("paper", "scissors"),
         ("scissors", "rock"),
-    }
+    )
 
 
 config = Settings()

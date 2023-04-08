@@ -1,4 +1,4 @@
-from enum import Enum
+from enum import Enum, auto
 
 from fastapi import HTTPException, status
 from pydantic import BaseModel, validator
@@ -16,10 +16,11 @@ class ChoiceResponseModel(BaseModel):
     message: str
 
 
+# noinspection PyArgumentList
 class GameResult(Enum):
-    WIN = "You Win"
-    LOSS = "You Lose"
-    TIE = "Tie"
+    WIN = auto()
+    LOSS = auto()
+    TIE = auto()
 
 
 class ItemModel(BaseModel):
