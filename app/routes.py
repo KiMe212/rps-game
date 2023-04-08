@@ -19,9 +19,9 @@ router = APIRouter(
 )
 def play_rps(choice_model: ChoiceModel):
     pc_choice = random.choice(config.CHOICE_LIST)
-    validated_choice = ItemModel(item=choice_model.your_choice)
+    validated_choice = ItemModel(item=choice_model.choice)
     game_result = get_game_result(
-        first_choice=choice_model.your_choice,
+        first_choice=choice_model.choice,
         second_choice=pc_choice,
     )
     message = get_message_from_game_result(result=game_result)

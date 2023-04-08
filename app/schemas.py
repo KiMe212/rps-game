@@ -7,7 +7,7 @@ from app.settings import config
 
 
 class ChoiceModel(BaseModel):
-    your_choice: str
+    choice: str
 
 
 class ChoiceResponseModel(BaseModel):

@@ -13,7 +13,7 @@ import pytest
     ],
 )
 def test_post_choice(choice, answer, test_client):
-    response = test_client.post("/game/rps", json={"your_choice": choice})
+    response = test_client.post("/game/rps", json={"choice": choice})
 
     assert response.status_code == 200
     assert response.json() == {
@@ -24,7 +24,7 @@ def test_post_choice(choice, answer, test_client):
 
 
 def test_validate_post_choice(test_client):
-    response = test_client.post("/game/rps", json={"your_choice": "234342"})
+    response = test_client.post("/game/rps", json={"choice": "234342"})
 
     assert response.status_code == 400
     assert response.json() == {"detail": "You have incorrect choice"}
